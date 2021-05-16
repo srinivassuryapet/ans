@@ -4,14 +4,14 @@
     URL: play.example.com
   tasks:
     - name: Print URL
-       debug:
+      debug:
          msg: URl = {{ URL }}
 
 - name: Demo on play variables
   hosts: all
   tasks:
     - name: Print URL
-        debug:
+      debug:
           msg: URl = {{ URL }}
-        vars:
+      vars:
           URL: play.example.com
