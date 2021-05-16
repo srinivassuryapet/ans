@@ -3,5 +3,5 @@
   tasks:
     - name: Print Hostname
       debug:
-        msg: Hostname = {{ ansible_hostname }}
+        msg: Hostname = {{ ansible_hostname }}, OS-Family = {{ ansible_os_family }}
 
