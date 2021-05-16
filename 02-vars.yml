@@ -29,3 +29,10 @@
     - name: Print URL2 var from Inventory
       debug:
         msg: URL2 = {{ URL2 }}
+
+- name: Demo on file variables
+  hosts: all
+  tasks:
+    - name: Print var from file
+      debug:
+        msg: URL_File = {{ URL_File }}
