@@ -32,6 +32,7 @@
 
 - name: Demo on file variables
   hosts: all
+  vars_files: vars.yml
   tasks:
     - name: Print var from file
       debug:
