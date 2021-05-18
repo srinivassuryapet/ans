@@ -6,5 +6,5 @@
         msg: I am centos
 
     - name: execute if it is ubuntu machine
-        debug:
-          msg: I am ubuntu
+      debug:
+        msg: I am ubuntu
