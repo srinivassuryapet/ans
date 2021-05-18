@@ -2,5 +2,9 @@
   hosts: all
   become: yes
   roles:
-    - frontend
-    - catalogue
+    - name: Import Frontend
+      ansible.builtin.import_role:
+        name: frontend
+    - name: Import Catalogue
+      ansible.builtin.import_role:
+        name: catalogue
