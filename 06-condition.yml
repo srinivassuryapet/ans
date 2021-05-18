@@ -4,7 +4,9 @@
     - name: execute if it is centos machine
       debug:
         msg: I am centos
+      when: ansible_os_family == "Redhat"
 
     - name: execute if it is ubuntu machine
       debug:
         msg: I am ubuntu
+      when: ansible_os_family == "Debian"
