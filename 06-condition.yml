@@ -5,6 +5,6 @@
       debug:
         msg: I am centos
 
-    - name: execute if it is centos machine
+    - name: execute if it is ubuntu machine
         debug:
-          msg: I am centos
+          msg: I am ubuntu
