@@ -1,8 +1,13 @@
-#- name: Install nginx
-#  ansible.builtin.yum:
-#    name: nginx
-#    state: present
+- name: Install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
 
-- name: Print
-  debug:
-    msg: Hello from Frontend
+- name: Download {{ APP }} Component
+  include_role:
+    name: common
+    tasks_from: curl_download
+  vars:
+    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+    EXTRACT_DIR: /usr/share/nginx/html
+
