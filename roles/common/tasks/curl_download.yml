@@ -22,3 +22,9 @@
 - name: Move Htdocs Directory
   shell: mv /usr/share/nginx/html/frontend-main/static/* /usr/share/nginx/html/.
   when: APP == "frontend"
+
+- name: Restart service nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+  when: APP == "frontend"
