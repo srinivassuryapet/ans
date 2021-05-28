@@ -1,3 +1,15 @@
-- name: Print
-  debug:
-    msg: Hello from Catalogue
+- name: Install NodeJS
+  yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
+
+- name: Download {{ APP }} Component
+  include_role:
+    name: common
+    tasks_from: curl_downlaod
+  vars:
+    URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
+    EXTRACT_DIR: /home/roboshop/catalogue

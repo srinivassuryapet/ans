@@ -3,3 +3,8 @@
 
 - name: Disable autoshutdown for {{APP}} component
   shell: disable-auto-shutdown
+
+- name: Add roboshop user
+  user:
+    name: roboshop
+  when: APP == "catalogue" or APP == "user" or APP == "cart" or APP == "shipping" or APP == "payment"
