@@ -20,4 +20,4 @@
     tasks_from: curl_download
   vars:
     URL: "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
-    EXTRACT_DIR: /tmp
+    EXTRACT_DIR: /tmp/mongodb
