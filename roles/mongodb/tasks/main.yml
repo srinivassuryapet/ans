@@ -31,4 +31,4 @@
 - name: Load Schema
   shell: mongo < catalogue.js && mongo < users.js
   args:
-    chdir: /tmp/mongodb
+    chdir: /tmp/mongodb/mongodb-main
