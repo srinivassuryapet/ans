@@ -27,3 +27,8 @@
   vars:
     URL: "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
     EXTRACT_DIR: /tmp/mongodb
+
+- name: Load Schema
+  shell: mongo < catalogue.js && mongo < users.js
+    args:
+      chdir: /tmp/mongodb
