@@ -23,6 +23,6 @@
   shell: mv /usr/share/nginx/html/frontend-main/static/* /usr/share/nginx/html/.
   when: APP == "frontend"
 
-- name: Move catalogue Directory
-  shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
-  when: APP == "catalogue"
+#- name: Move catalogue Directory
+#  shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
+#  when: APP == "catalogue"
