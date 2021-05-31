@@ -29,8 +29,6 @@
     path: /home/roboshop/catalogue
   become_user: roboshop
 
-#NOTE: We need to update the IP address of MONGODB Server in systemd.service file
-
 - name: Update SystemD script for Catalogue Service
   ansible.builtin.replace:
     path: /home/roboshop/catalogue/systemd.service
