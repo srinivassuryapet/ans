@@ -19,6 +19,7 @@
     src: /tmp/{{APP}}.zip
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
+  become_user: {{APP_USER}}
 
 - name: Move Htdocs Directory
   shell: mv /usr/share/nginx/html/frontend-main/static/* /usr/share/nginx/html/.
@@ -27,3 +28,4 @@
 - name: Move catalogue Directory
   shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
   when: APP == "catalogue"
+  become_user: {{APP_USER}}
