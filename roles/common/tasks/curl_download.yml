@@ -12,6 +12,7 @@
   file:
     path: "{{EXTRACT_DIR}}"
     state: directory
+  become_user: {{APP_USER}}
 
 - name: Unarchive {{ APP }} Component
   ansible.builtin.unarchive:

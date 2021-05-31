@@ -10,6 +10,7 @@
   vars:
     URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
     EXTRACT_DIR: /usr/share/nginx/html
+    APP_USER: root
 
 - name: Restart service nginx
   ansible.builtin.service:
