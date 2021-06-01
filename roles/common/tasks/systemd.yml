@@ -19,7 +19,7 @@
 
 - name: Start {{COMPONENT}} Service
   systemd:
-    name: {{APP}}
+    name: {{COMPONENT}}
     state: restarted
     enabled: yes
     daemon_reload: yes
