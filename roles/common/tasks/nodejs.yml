@@ -1,0 +1,27 @@
+- name: Install nodejs
+  yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
+
+- name: Download {{APP}} Component
+  include_tasks: curl_download.yml
+  vars:
+    EXTRACT_DIR: /home/roboshop/{{APP}}
+    APP_USER: roboshop
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /home/roboshop/{{APP}}
+    state: directory
+    mode: '0755'
+
+- name: change the directory
+  shell: cd /home/roboshop/{{APP}}
+
+- name: Install Nodejs modules
+  community.general.npm:
+    path: /home/roboshop/{{APP}}
+  become_user: roboshop

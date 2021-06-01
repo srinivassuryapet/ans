@@ -1,0 +1,25 @@
+- name: Update SystemD script for {{APP}} Service
+  ansible.builtin.replace:
+    path: /home/roboshop/{{APP}}/systemd.service
+    regexp: "{{item.source}}"
+    replace: "{{item.dest}}"
+  loop:
+    - {source: "MONGO_DNSNAME", dest: "mongodb-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "REDIS_ENDPOINT", dest: "redis-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "CATALOGUE_ENDPOINT", dest: "catalogue-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "CARTHOST", dest: "cart-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "USERHOST", dest: "user-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "AMQPHOST", dest: "rabbitmq-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "CARTENDPOINT", dest: "cart-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "DBHOST", dest: "mysql-{{ENV}}.srinivassuryapet.ml"}
+    - {source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.srinivassuryapet.ml"}
+
+- name: Setup SystemD script
+  shell: mv /home/roboshop/{{APP}}/systemd.service /etc/systemd/system/{{APP}}.service
+
+- name: Start {{APP}} Service
+  systemd:
+    name: {{APP}}
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
