@@ -29,3 +29,17 @@
       tags:
         - redis
       when: APP == "redis"
+
+    - name: Import User
+      ansible.builtin.import_role:
+        name: user
+      tags:
+        - user
+      when: APP == "user"
+
+    - name: Import User
+      ansible.builtin.import_role:
+        name: cart
+      tags:
+        - cart
+      when: APP == "cart"
