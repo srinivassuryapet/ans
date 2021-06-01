@@ -1,7 +1,7 @@
-- name: sethostname for {{APP}} component
-  shell: set-hostname {{APP}}
+- name: sethostname for {{COMPONENT}} component
+  shell: set-hostname {{COMPONENT}}
 
-- name: Disable autoshutdown for {{APP}} component
+- name: Disable autoshutdown for {{COMPONENT}} component
   shell: disable-auto-shutdown
 
 - name: Add roboshop user
