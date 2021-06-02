@@ -1,4 +1,4 @@
-- name: Download {{ APP }} component
+- name: Download {{ COMPONENT }} component
   get_url:
     url: "{{URL}}"
     dest: /tmp/{{APP}}.zip
@@ -8,13 +8,13 @@
     path: "{{EXTRACT_DIR}}"
     state: absent
 
-- name: Create directory for {{ APP }} component
+- name: Create directory for {{ COMPONENT }} component
   file:
     path: "{{EXTRACT_DIR}}"
     state: directory
   become_user: "{{APP_USER}}"
 
-- name: Unarchive {{ APP }} Component
+- name: Unarchive {{ COMPONENT }} Component
   ansible.builtin.unarchive:
     src: /tmp/{{APP}}.zip
     dest: "{{EXTRACT_DIR}}"
@@ -27,5 +27,15 @@
 
 - name: Move catalogue Directory
   shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
-  when: APP == "catalogue"
+  when: COMPONENT == "catalogue"
+  become_user: "{{APP_USER}}"
+
+- name: Move user Directory
+  shell: mv /home/roboshop/user/user-main/* /home/roboshop/user/.
+  when: COMPONENT == "user"
+  become_user: "{{APP_USER}}"
+
+- name: Move cart Directory
+  shell: mv /home/roboshop/cart/cart-main/* /home/roboshop/cart/.
+  when: COMPONENT == "cart"
   become_user: "{{APP_USER}}"
