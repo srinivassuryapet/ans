@@ -17,6 +17,7 @@
 - name: Setup SystemD script
   shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
 
+
 - name: Start {{COMPONENT}} Service
   systemd:
     name: "{{COMPONENT}}"
