@@ -1,7 +1,7 @@
 - name: Download {{ COMPONENT }} component
   get_url:
     url: "{{URL}}"
-    dest: /tmp/{{APP}}.zip
+    dest: /tmp/{{COMPONENT}}.zip
 
 - name: Remove old content
   file:
