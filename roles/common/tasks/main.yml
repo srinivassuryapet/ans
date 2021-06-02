@@ -7,4 +7,4 @@
 - name: Add roboshop user
   user:
     name: roboshop
-  when: APP == "catalogue" or APP == "user" or APP == "cart" or APP == "shipping" or APP == "payment"
+  when: COMPONENT == "catalogue" or COMPONENT == "user" or COMPONENT == "cart" or COMPONENT == "shipping" or COMPONENT == "payment"
