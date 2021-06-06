@@ -1,4 +1,4 @@
-- name: Update SystemD script for {{COMPONENT}} Service
+- name: Update SystemD script for {{ COMPONENT }} Service
   ansible.builtin.replace:
     path: /home/roboshop/{{COMPONENT}}/systemd.service
     regexp: "{{item.source}}"
@@ -15,10 +15,10 @@
     - {source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.srinivassuryapet.ml"}
 
 - name: Setup SystemD script
-  shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+  ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Start {{COMPONENT}} Service
-  systemd:
+- name: Start {{ COMPONENT }} Service
+  ansible.builtin.systemd:
     name: "{{COMPONENT}}"
     state: restarted
     enabled: yes

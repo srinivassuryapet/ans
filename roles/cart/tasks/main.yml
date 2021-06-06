@@ -4,5 +4,3 @@
     tasks_from: nodejs
   vars:
       URL: "https://github.com/roboshop-devops-project/cart/archive/main.zip"
-
-
