@@ -25,6 +25,10 @@
   ansible.builtin.shell: mv /usr/share/nginx/html/frontend-main/static/* /usr/share/nginx/html/.
   when: COMPONENT == "frontend"
 
+- name: Move Htdocs Directory
+  ansible.builtin.shell: mv /usr/share/nginx/html/frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
+  when: COMPONENT == "frontend"
+
 #- name: Move catalogue Directory
 #  ansible.builtin.shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
 #  when: COMPONENT == "catalogue"
