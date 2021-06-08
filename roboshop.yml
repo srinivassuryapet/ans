@@ -37,9 +37,23 @@
         - user
       when: APP == "user"
 
-    - name: Import User
+    - name: Import Cart
       ansible.builtin.import_role:
         name: cart
       tags:
         - cart
       when: APP == "cart"
+
+    - name: Import Shipping
+      ansible.builtin.import_role:
+        name: shipping
+      tags:
+        - shipping
+      when: APP == "shipping"
+
+    - name: Import Mysql
+      ansible.builtin.import_role:
+        name: mysql
+      tags:
+        - mysql
+      when: APP == "mysql"
