@@ -19,3 +19,8 @@
     state: started
     enabled: yes
 
+- name: Check DB has been configured or not
+  shell: echo "show databases;" | mysql -uroot -ppassword
+
+- name: Grab default mysql password
+  shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
