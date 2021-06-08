@@ -29,17 +29,17 @@
   ansible.builtin.shell: mv /usr/share/nginx/html/frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
   when: COMPONENT == "frontend"
 
-#- name: Move catalogue Directory
-#  ansible.builtin.shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
-#  when: COMPONENT == "catalogue"
-#  become_user: "{{APP_USER}}"
+- name: Move catalogue Directory
+  ansible.builtin.shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
+  when: COMPONENT == "catalogue"
+  become_user: "{{APP_USER}}"
 
-#- name: Move user Directory
-#  ansible.builtin.shell: mv /home/roboshop/user/user-main/* /home/roboshop/user/.
-#  when: COMPONENT == "user"
-#  become_user: "{{APP_USER}}"
+- name: Move user Directory
+  ansible.builtin.shell: mv /home/roboshop/user/user-main/* /home/roboshop/user/.
+  when: COMPONENT == "user"
+  become_user: "{{APP_USER}}"
 
-#- name: Move cart Directory
-#  ansible.builtin.shell: mv /home/roboshop/cart/cart-main/* /home/roboshop/cart/.
-#  when: COMPONENT == "cart"
-#  become_user: "{{APP_USER}}"
+- name: Move cart Directory
+  ansible.builtin.shell: mv /home/roboshop/cart/cart-main/* /home/roboshop/cart/.
+  when: COMPONENT == "cart"
+  become_user: "{{APP_USER}}"
