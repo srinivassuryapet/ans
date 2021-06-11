@@ -7,7 +7,7 @@
     state: present
 
 - name: Download {{ COMPONENT }} Component
-  ansible.builtin.include_tasks: curl_download.yml
+  ansible.builtin.include_tasks: download-github.yml
   vars:
     EXTRACT_DIR: /home/roboshop/{{COMPONENT}}
     APP_USER: roboshop

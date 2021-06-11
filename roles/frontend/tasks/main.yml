@@ -1,18 +1,20 @@
 - name: Install nginx
   ansible.builtin.yum:
     name: nginx
-    state: present
+    state: installed
 
-- name: Download {{ APP }} Component
+- name: Remove Html Docs
+  file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Download {{COMPONENT}} from GitHub
   include_role:
     name: common
-    tasks_from: curl_download
-  vars:
-    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-    EXTRACT_DIR: /usr/share/nginx/html
-    APP_USER: root
+    tasks_from: download-github
 
 - name: Restart service nginx
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: nginx
     state: restarted
+    enabled: yes
