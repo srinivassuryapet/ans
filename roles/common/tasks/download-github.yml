@@ -1,5 +1,5 @@
 - name: Download & Extract {{COMPONENT}}
-  urarchive:
+  unarchive:
     src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
     dest: /tmp
     remote_src: yes
