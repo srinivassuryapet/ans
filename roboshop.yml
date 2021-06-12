@@ -1,14 +1,7 @@
-- name: Setup Roboshop Project
+- name: Setup Robohsop Project
   hosts: all
   become: yes
   tasks:
-    - name: Import Frontend
-      ansible.builtin.import_role:
-        name: frontend
-      tags:
-        - frontend
-      when: APP == "frontend"
-
     - name: Import Catalogue
       ansible.builtin.import_role:
         name: catalogue
@@ -16,7 +9,14 @@
         - catalogue
       when: APP == "catalogue"
 
-    - name: Import Mongodb
+    - name: Import Frontend
+      ansible.builtin.import_role:
+        name: frontend
+      tags:
+        - frontend
+      when: APP == "frontend"
+
+    - name: Import MongoDB
       ansible.builtin.import_role:
         name: mongodb
       tags:
@@ -51,7 +51,7 @@
         - shipping
       when: APP == "shipping"
 
-    - name: Import Mysql
+    - name: Import MySQL
       ansible.builtin.import_role:
         name: mysql
       tags:
@@ -71,4 +71,3 @@
       tags:
         - payment
       when: APP == "payment"
-
