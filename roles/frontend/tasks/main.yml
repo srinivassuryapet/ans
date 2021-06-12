@@ -9,7 +9,7 @@
     state: absent
 
 ##### This is download from Git repo directly
-- name: Download {{ APP }} Component
+- name: Download {{ COMPONENT }} Component
   include_role:
     name: common
     tasks_from: curl_download

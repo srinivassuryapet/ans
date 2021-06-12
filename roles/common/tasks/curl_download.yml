@@ -10,15 +10,14 @@
     path: "{{EXTRACT_DIR}}"
     state: absent
 
-#- name: Create directory for {{ COMPONENT }} component
-#  ansible.builtin.file:
-#    path: "{{EXTRACT_DIR}}"
-#    state: directory
-#  become_user: "{{APP_USER}}"
+- name: Create directory for {{ COMPONENT }} component
+  ansible.builtin.file:
+    path: "{{EXTRACT_DIR}}"
+    state: directory
+  become_user: "{{APP_USER}}"
 
 - name: Unarchive {{ COMPONENT }} Component
-  #ansible.builtin.unarchive:
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/{{COMPONENT}}.zip
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
