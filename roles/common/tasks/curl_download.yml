@@ -7,7 +7,7 @@
 - name: Remove old content
   #ansible.builtin.file:
   file:
-    path: "{{COMPONENT_DIR}}"
+    path: "{{EXTRACT_DIR}}"
     state: absent
 
 #- name: Create directory for {{ COMPONENT }} component
