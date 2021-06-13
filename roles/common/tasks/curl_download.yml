@@ -23,10 +23,7 @@
     remote_src: yes
   become_user: "{{APP_USER}}"
 
-- name: Move component Directory
-  shell: mv {{EXTRACT_DIR}}/{{COMPONENT}}-main {{EXTRACT_DIR}}/{{COMPONENT}}
-
 - name: Move Htdocs Directory
-  shell: mv /usr/share/nginx/frontend /usr/share/nginx/html &&  mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
+  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
   when: COMPONENT == "frontend"
   # A shell command is decided to use over ansible module, Since we have static dir which is part of html directory causing the recursive problem for ansible module.
