@@ -23,6 +23,12 @@
     remote_src: yes
   become_user: "{{APP_USER}}"
 
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
+    mode: '0755'
+
 - name: Move Htdocs Directory
   shell: mv /usr/share/nginx/frontend-main/static/* /usr/share/nginx/html/.
   when: COMPONENT == "frontend"
