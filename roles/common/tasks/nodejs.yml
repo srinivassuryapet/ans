@@ -1,11 +1,3 @@
-- name: Install nodejs
-  ansible.builtin.yum:
-    name:
-      - nodejs
-      - make
-      - gcc-c++
-    state: present
-
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: curl_download.yml
   vars:

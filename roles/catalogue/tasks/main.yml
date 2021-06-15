@@ -1,9 +1,48 @@
-- name: Setup nodejs for {{ COMPONENT }} Component
+- name: Install nodejs
+  ansible.builtin.yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
+
+- name: Download {{COMPONENT}} component
   include_role:
     name: common
-    tasks_from: nodejs
+    tasks-from: curl_download
   vars:
     URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
+    EXTRACT_DIR: /home/roboshop/catalogue-main
+    APP_USER: roboshop
+
+#- name: Setup nodejs for {{ COMPONENT }} Component
+#  include_role:
+#    name: common
+#    tasks_from: nodejs
+#  vars:
+#    URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
+
+- name: Install Nodejs modules
+  community.general.npm:
+    path: /home/roboshop/catalogue-main
+  become_user: roboshop
+
+- name: Update systemd script for catalogue service
+  ansible.builtin.replace:
+    path: /home/roboshop/catalogue-main/systemd.service
+    regexp: 'MONGO_DNSNAME'
+    replace: "mongodb-{{ENV}}.srinivassuryapet.ml"
+
+- name: Setup systemd script
+  shell: mv /home/roboshop/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
+
+- name: Start catalogue service
+  systemd:
+    name: catalogue
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
 
 - name: Import NodeJS Tasks
   include_role:
