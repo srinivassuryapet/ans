@@ -6,7 +6,7 @@
       - gcc-c++
     state: present
 
-- name: Download {{ COMPONENT }}
+- name: Download "{{ COMPONENT }}"
   include_role:
     name: common
     tasks-from: curl_download
