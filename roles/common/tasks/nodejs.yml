@@ -1,19 +1,18 @@
-- name: Download {{ COMPONENT }} Component
-  ansible.builtin.include_tasks: curl_download.yml
-  vars:
-    EXTRACT_DIR: /home/roboshop
-    APP_USER: roboshop
-    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
+- name: Install Nodejs
+  yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
 
-#- name: Install Nodejs modules
-#  community.general.npm:
-#    path: /home/roboshop/{{COMPONENT}}
-#  become_user: roboshop
+- name: Download {{ COMPONENT }} Component
+  include_tasks: curl_download.yml
+  vars:
+    EXTRACT_DIR: /home/roboshop/{{COMPONENT}}
+    APP_USER: roboshop
 
 - name: Install NodeJS Modules
   npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
-
-- name: Download {{ COMPONENT }} Component
-  include_tasks: systemd.yml
