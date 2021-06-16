@@ -12,7 +12,7 @@
     tasks_from: curl_download
   vars:
     URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
-    EXTRACT_DIR: /home/roboshop/catalogue
+    EXTRACT_DIR: /home/roboshop/catalogue/
     APP_USER: roboshop
 
 - name: Install Nodejs modules
@@ -28,6 +28,9 @@
 
 - name: Setup systemd script
   shell: mv /home/roboshop/catalogue/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
+
+- name: move files to roboshop
+  shell: mv /home/roboshop/catalogue/catalogue-main/* /home/roboshop/catalogue/.
 
 - name: Start catalogue service
   systemd:
