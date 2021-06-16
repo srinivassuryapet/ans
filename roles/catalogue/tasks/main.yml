@@ -15,13 +15,6 @@
     EXTRACT_DIR: /home/roboshop/catalogue
     APP_USER: roboshop
 
-#- name: Setup nodejs for {{ COMPONENT }} Component
-#  include_role:
-#    name: common
-#    tasks_from: nodejs
-#  vars:
-#    URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
-
 - name: Install Nodejs modules
   community.general.npm:
     path: /home/roboshop/catalogue/catalogue-main
@@ -43,10 +36,6 @@
     enabled: yes
     daemon_reload: yes
 
-#- name: Import NodeJS Tasks
-#  include_role:
-#   name: common
-#    tasks_from: nodejs
 
 
 
