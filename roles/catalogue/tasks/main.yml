@@ -24,17 +24,17 @@
 
 - name: Install Nodejs modules
   community.general.npm:
-    path: /home/roboshop/catalogue-main
+    path: /home/roboshop/catalogue/catalogue-main
   become_user: roboshop
 
 - name: Update systemd script for catalogue service
   ansible.builtin.replace:
-    path: /home/roboshop/catalogue-main/systemd.service
+    path: /home/roboshop/catalogue/catalogue-main/systemd.service
     regexp: 'MONGO_DNSNAME'
     replace: "mongodb-{{ENV}}.srinivassuryapet.ml"
 
 - name: Setup systemd script
-  shell: mv /home/roboshop/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
+  shell: mv /home/roboshop/catalogue/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
 
 - name: Start catalogue service
   systemd:
