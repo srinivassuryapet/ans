@@ -1,10 +1,8 @@
-- name: Setup SystemD script
-  ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
-
 - name: Update SystemD script for {{COMPONENT}} Service
   ansible.builtin.replace:
 #   path: /etc/systemd/{{COMPONENT}}/systemd.service
-    path: /etc/systemd/system/{{COMPONENT}}.service
+#mv /home/roboshop/catalogue/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/systemd.service
     regexp: "{{item.source}}"
     replace: "{{item.dest}}"
   loop:
@@ -17,6 +15,12 @@
     - {source: "CARTENDPOINT", dest: "cart-{{ENV}}.srinivassuryapet.ml"}
     - {source: "DBHOST", dest: "mysql-{{ENV}}.srinivassuryapet.ml"}
     - {source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.srinivassuryapet.ml"}
+
+- name: Setup SystemD script
+  ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+
+- name: move files to roboshop
+  shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/* /home/roboshop/{{COMPONENT}}/.
 
 - name: Start {{COMPONENT}} Service
   ansible.builtin.systemd:

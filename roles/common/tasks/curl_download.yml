@@ -1,11 +1,9 @@
 - name: Download {{ COMPONENT }} Component
-  #ansible.builtin.get_url:
   get_url:
     url: "{{URL}}"
     dest: /tmp/{{COMPONENT}}.zip
 
 - name: Remove old content
-  #ansible.builtin.file:
   file:
     path: "{{EXTRACT_DIR}}"
     state: absent

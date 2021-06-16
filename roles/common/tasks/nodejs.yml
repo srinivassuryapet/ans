@@ -9,10 +9,13 @@
 - name: Download {{ COMPONENT }} Component
   include_tasks: curl_download.yml
   vars:
-    EXTRACT_DIR: /home/roboshop/{{COMPONENT}}
+    EXTRACT_DIR: /home/roboshop/{{COMPONENT}}/
     APP_USER: roboshop
 
 - name: Install NodeJS Modules
   npm:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}
   become_user: roboshop
+
+- name: Download {{ COMPONENT }} Component
+  include_tasks: systemd.yml
