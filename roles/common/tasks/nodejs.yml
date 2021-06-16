@@ -14,7 +14,7 @@
 
 - name: Install NodeJS Modules
   npm:
-    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/
   become_user: roboshop
 
 - name: Download {{ COMPONENT }} Component

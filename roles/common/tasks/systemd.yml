@@ -17,10 +17,10 @@
     - {source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.srinivassuryapet.ml"}
 
 - name: Setup SystemD script
-  ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+  ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/systemd.service /etc/systemd/system/{{COMPONENT}}.service
 
 - name: move files to roboshop
-  shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/* /home/roboshop/{{COMPONENT}}/.
+  shell: mv /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/* /home/roboshop/{{COMPONENT}}/.
 
 - name: Start {{COMPONENT}} Service
   ansible.builtin.systemd:
