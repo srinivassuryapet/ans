@@ -6,7 +6,7 @@
       - gcc-c++
     state: present
 
-- name: Download component
+- name: Download {{ COMPONENT }}
   include_role:
     name: common
     tasks-from: curl_download
@@ -42,7 +42,6 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
-
 
 - name: Import NodeJS Tasks
   include_role:
