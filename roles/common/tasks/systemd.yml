@@ -2,7 +2,7 @@
   ansible.builtin.replace:
 #   path: /etc/systemd/{{COMPONENT}}/systemd.service
 #mv /home/roboshop/catalogue/catalogue-main/systemd.service /etc/systemd/system/catalogue.service
-    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT-main}}/systemd.service
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/systemd.service
     regexp: "{{item.source}}"
     replace: "{{item.dest}}"
   loop:
