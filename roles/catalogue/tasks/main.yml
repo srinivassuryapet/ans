@@ -6,14 +6,14 @@
       - gcc-c++
     state: present
 
-- name: Download {{ COMPONENT }}
+- name: Download {{ COMPONENT }} Component
   include_role:
     name: common
     tasks-from: curl_download
   vars:
     URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
-    EXTRACT_DIR: "/home/roboshop/catalogue-main"
-    APP_USER: "roboshop"
+    EXTRACT_DIR: /home/roboshop/catalogue-main
+    APP_USER: roboshop
 
 #- name: Setup nodejs for {{ COMPONENT }} Component
 #  include_role:
