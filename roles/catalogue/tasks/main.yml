@@ -6,6 +6,7 @@
       - gcc-c++
     state: present
 
+
 - name: Download {{COMPONENT}} component
   include_role:
     name: common
