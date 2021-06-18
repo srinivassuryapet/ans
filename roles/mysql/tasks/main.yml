@@ -26,6 +26,9 @@
   ignore_errors: yes
   register: out
 
+- name: debug
+  debug:
+    msg: "{{out}}"
 - name: Reset Default Password
   when: out.rc != 0
   block:
