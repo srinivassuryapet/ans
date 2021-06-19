@@ -29,3 +29,5 @@
    regexp: "^gid"
    line: "gid={{RS_GID}}"
 
+- name: Download {{ COMPONENT }} Component
+  include_tasks: systemd.yml
