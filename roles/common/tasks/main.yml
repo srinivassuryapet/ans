@@ -9,3 +9,8 @@
     name: roboshop
   when: COMPONENT == "catalogue" or COMPONENT == "user" or COMPONENT == "cart" or COMPONENT == "shipping" or COMPONENT == "payment"
   register: out
+
+- name: Grab UID and GID of Roboshop user
+  set_fact:
+    RS_UID: "{{out.uid}}"
+    RS_GID: "{{out.group}}"
