@@ -13,7 +13,7 @@
 - name: Install Maven Modules
   shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
   args:
-    chdir: /home/roboshop/{{COMPONENT}}
+    chdir: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/
   become_user: roboshop
 
 - name: Download {{ COMPONENT }} Component
