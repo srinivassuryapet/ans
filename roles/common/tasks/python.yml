@@ -17,5 +17,9 @@
     requirements: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}-main/requirements.txt
     executable: pip3
 
-- name: Download {{ COMPONENT }} Component
-  include_tasks: systemd.yml
+- name: Debut
+  debug:
+    msg: "{{out}}"
+
+#- name: Download {{ COMPONENT }} Component
+# include_tasks: systemd.yml
