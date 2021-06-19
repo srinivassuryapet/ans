@@ -17,7 +17,12 @@
     URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
     EXTRACT_DIR: /usr/share/nginx
     APP_USER: root
-    COMPONENT_DIR: /usr/share/nginx/html
+    #COMPONENT_DIR: /usr/share/nginx/html
+
+- name: Copy Nginx Config file
+  template:
+    src: roboshop.conf
+    dest:/etc/nginx/default.d/roboshop.conf
 
 - name: Restart service nginx
   ansible.builtin.systemd:
