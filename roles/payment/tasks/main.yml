@@ -1,0 +1,6 @@
+- name: Setup Python for {{ COMPONENT }} Component
+  include_role:
+    name: common
+    tasks_from: python
+  vars:
+    URL: "https://github.com/roboshop-devops-project/payment/archive/main.zip"
