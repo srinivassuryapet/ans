@@ -51,7 +51,7 @@
     APP_USER: root
 
 - name: Load Schema
-  shell: mysql -uroot -ppassword < /tmp/mysql/shipping.sql
+  shell: mysql -uroot -ppassword < /tmp/mysql/mysql-main/shipping.sql
 
 
 
