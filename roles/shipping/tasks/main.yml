@@ -1,0 +1,6 @@
+- name: Setup nodejs for {{ COMPONENT }} Component
+  include_role:
+    name: common
+    tasks_from: java
+  vars:
+    URL: "https://github.com/roboshop-devops-project/shipping/archive/main.zip"
