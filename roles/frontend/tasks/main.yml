@@ -22,7 +22,7 @@
 - name: Copy Nginx Config file
   template:
     src: roboshop.conf
-    dest:/etc/nginx/default.d/roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: Restart service nginx
   ansible.builtin.systemd:
